@@ -10,17 +10,19 @@ namespace EducationGameAPINet8.Controllers
     public class GameSessionController(IGameSessionService gameSessionService) : Controller
     {
         [HttpPost("create")]
-        public async Task<IActionResult> CreateGameSession([FromBody] GameSessionCreateDto dto)
+        public async Task<IActionResult> CreateGameSession([FromBody] GameSessionCreateDto dto) // hàm tạo mới và lưu thông tin lượt chơi user vừa chơi
         {
             try
             {
-                var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-                if (userId == null)
+                var nameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (string.IsNullOrEmpty(nameIdentifier))
                 {
-                    return Unauthorized("User is not authenticated.");
+                    return BadRequest("User identifier is missing.");
                 }
 
-                var sessionId = await gameSessionService.CreateGameSessionAsync(dto, userId);
+                var userId = Guid.Parse(nameIdentifier); // lấy userId từ claim trong token
+
+                var sessionId = await gameSessionService.CreateGameSessionAsync(dto, userId); // gọi đến service xử lý
                 return Ok(new { sessionId });
             }
             catch (KeyNotFoundException ex)
@@ -34,16 +36,19 @@ namespace EducationGameAPINet8.Controllers
         }
 
         [HttpGet("latest-session")]
-        public async Task<IActionResult> GetLatestSession([FromQuery] string gameType)
+        public async Task<IActionResult> GetLatestSession([FromQuery] string gameType) // hàm lấy phiên chơi mới nhất của loại game cụ thể gameType
         {
             try
             {
-                var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-                if (userId == null)
+                var nameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (string.IsNullOrEmpty(nameIdentifier))
                 {
-                    return Unauthorized("User is not authenticated.");
+                    return BadRequest("User identifier is missing.");
                 }
-                var latestSession = await gameSessionService.GetLatestSessionAsync(userId, gameType);
+
+                var userId = Guid.Parse(nameIdentifier); // lấy userId từ claim trong token
+                
+                var latestSession = await gameSessionService.GetLatestSessionAsync(userId, gameType); // gọi đến service xử lý
                 if (latestSession == null)
                 {
                     return NotFound("No game session found for this user.");
@@ -57,16 +62,19 @@ namespace EducationGameAPINet8.Controllers
         }
 
         [HttpGet("summary")]
-        public async Task<IActionResult> GetGameSummary([FromQuery] string gameType)
+        public async Task<IActionResult> GetGameSummary([FromQuery] string gameType) // hàm lấy thông tin tổng hợp của loại game cụ thể gameType
         {
             try
             {
-                var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-                if (userId == null)
+                var nameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (string.IsNullOrEmpty(nameIdentifier))
                 {
-                    return Unauthorized("User is not authenticated.");
+                    return BadRequest("User identifier is missing.");
                 }
-                var summary = await gameSessionService.GetGameSummaryAsync(userId, gameType);
+
+                var userId = Guid.Parse(nameIdentifier); // lấy userId từ claim trong token
+                
+                var summary = await gameSessionService.GetGameSummaryAsync(userId, gameType); // gọi đến service xử lý
                 if (summary == null)
                 {
                     return NotFound("No game sessions found for this user.");
@@ -80,16 +88,19 @@ namespace EducationGameAPINet8.Controllers
         }
 
         [HttpGet("unlocked-status")]
-        public async Task<IActionResult> GetUnlockedGameStatus()
+        public async Task<IActionResult> GetUnlockedGameStatus() // hàm lấy trạng thái mở khóa của các game
         {
             try
             {
-                var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-                if (userId == null)
+                var nameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (string.IsNullOrEmpty(nameIdentifier))
                 {
-                    return Unauthorized("User is not authenticated.");
+                    return BadRequest("User identifier is missing.");
                 }
-                var unlockedStatus = await gameSessionService.GetUnlockStatusWithScoresAsync(userId);
+
+                var userId = Guid.Parse(nameIdentifier); // lấy userId từ claim trong token
+                
+                var unlockedStatus = await gameSessionService.GetUnlockStatusWithScoresAsync(userId); // gọi đến service xử lý
                 return Ok(unlockedStatus);
             }
             catch (Exception ex)

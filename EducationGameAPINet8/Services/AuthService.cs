@@ -13,7 +13,7 @@ namespace EducationGameAPINet8.Services
 {
     public class AuthService(AppDbContext context, IConfiguration configuration) : IAuthService
     {
-        public async Task<TokenResponseDto> LoginAsync(UserDto request)
+        public async Task<TokenResponseDto?> LoginAsync(UserDto request)
         {
             var user = await context.Users.FirstOrDefaultAsync(u => u.Username == request.Username);
             if (user is null)
@@ -61,7 +61,7 @@ namespace EducationGameAPINet8.Services
             return user;
         }
 
-        public async Task<TokenResponseDto> RefreshTokenAsync(RefreshTokenRequestDto request, Guid userId)
+        public async Task<TokenResponseDto?> RefreshTokenAsync(RefreshTokenRequestDto request, Guid userId)
         {
             var user = await ValidateRefreshTokenAsync(userId, request.RefreshToken);
             if (user is null)

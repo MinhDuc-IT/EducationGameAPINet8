@@ -6,8 +6,8 @@ namespace EducationGameAPINet8.Services
     public interface IAuthService
     {
         Task<User?> RegisterAsync(UserDto request);
-        Task<TokenResponseDto> LoginAsync(UserDto request);
-        Task<TokenResponseDto> RefreshTokenAsync(RefreshTokenRequestDto request, Guid userId);
+        Task<TokenResponseDto?> LoginAsync(UserDto request);
+        Task<TokenResponseDto?> RefreshTokenAsync(RefreshTokenRequestDto request, Guid userId);
         Task LogoutAsync(Guid userId);
     }
 }

@@ -14,7 +14,7 @@ namespace EducationGameAPINet8.Controllers
         public static User user = new();
 
         [HttpPost("register")]
-        public async Task<ActionResult<User>> Register(UserDto request)
+        public async Task<ActionResult<User>> Register(UserDto request) // hàm đăng ký tài khoản mới
         {
             var user = await authService.RegisterAsync(request);
             if (user is null)
@@ -26,7 +26,7 @@ namespace EducationGameAPINet8.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<TokenResponseDto>> Login(UserDto request)
+        public async Task<ActionResult<TokenResponseDto>> Login(UserDto request) // hàm đăng nhập
         {
             var result = await authService.LoginAsync(request);
             if (result is null)
@@ -38,9 +38,15 @@ namespace EducationGameAPINet8.Controllers
         }
 
         [HttpPost("refresh-token")]
-        public async Task<ActionResult<TokenResponseDto>> RefreshToken(RefreshTokenRequestDto request)
+        public async Task<ActionResult<TokenResponseDto>> RefreshToken(RefreshTokenRequestDto request) // hàm tạo mới token
         {
-            var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var nameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(nameIdentifier))
+            {
+                return BadRequest("User identifier is missing.");
+            }
+
+            var userId = Guid.Parse(nameIdentifier);
             var result = await authService.RefreshTokenAsync(request, userId);
             if (result is null || result.AccessToken is null || result.RefreshToken is null)
             {
@@ -50,11 +56,17 @@ namespace EducationGameAPINet8.Controllers
         }
 
         [HttpPost("logout")]
-        public async Task<IActionResult> Logout()
+        public async Task<IActionResult> Logout() // hàm đăng xuất
         {
             try
             {
-                var userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                var nameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (string.IsNullOrEmpty(nameIdentifier))
+                {
+                    return BadRequest("User identifier is missing.");
+                }
+
+                var userId = Guid.Parse(nameIdentifier);
                 await authService.LogoutAsync(userId);
                 return Ok("Logged out");
             }
