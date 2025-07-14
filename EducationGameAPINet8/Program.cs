@@ -53,6 +53,16 @@ builder.Services.AddScoped<IGameSessionService, GameSessionService>();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate(); // tự tạo DB và bảng nếu chưa có
+}
+
+// --- Phục vụ frontend tĩnh (React build) ---
+app.UseDefaultFiles(); // tìm index.html trong wwwroot
+app.UseStaticFiles();  // phục vụ các file React build như js, css, img...
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -67,5 +77,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// --- Đảm bảo điều hướng đúng trong React SPA ---
+app.MapFallbackToFile("index.html");
 
 app.Run();
