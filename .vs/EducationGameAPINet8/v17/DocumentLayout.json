@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CBF660C8-D8AB-4E0F-819B-E66930F3E348}|EducationGameAPINet8\\EducationGameAPINet8.csproj|d:\\minhduc\\laptrinh\\educationgameweb\\educationgameapinet8\\educationgameapinet8\\entities\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBF660C8-D8AB-4E0F-819B-E66930F3E348}|EducationGameAPINet8\\EducationGameAPINet8.csproj|solutionrelative:educationgameapinet8\\entities\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CBF660C8-D8AB-4E0F-819B-E66930F3E348}|EducationGameAPINet8\\EducationGameAPINet8.csproj|d:\\minhduc\\laptrinh\\educationgameweb\\educationgameapinet8\\educationgameapinet8\\educationgameapinet8.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{CBF660C8-D8AB-4E0F-819B-E66930F3E348}|EducationGameAPINet8\\EducationGameAPINet8.csproj|solutionrelative:educationgameapinet8\\educationgameapinet8.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -41,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CBF660C8-D8AB-4E0F-819B-E66930F3E348}|EducationGameAPINet8\\EducationGameAPINet8.csproj|d:\\minhduc\\laptrinh\\educationgameweb\\educationgameapinet8\\educationgameapinet8\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBF660C8-D8AB-4E0F-819B-E66930F3E348}|EducationGameAPINet8\\EducationGameAPINet8.csproj|solutionrelative:educationgameapinet8\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CBF660C8-D8AB-4E0F-819B-E66930F3E348}|EducationGameAPINet8\\EducationGameAPINet8.csproj|d:\\minhduc\\laptrinh\\educationgameweb\\educationgameapinet8\\educationgameapinet8\\entities\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBF660C8-D8AB-4E0F-819B-E66930F3E348}|EducationGameAPINet8\\EducationGameAPINet8.csproj|solutionrelative:educationgameapinet8\\entities\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CBF660C8-D8AB-4E0F-819B-E66930F3E348}|EducationGameAPINet8\\EducationGameAPINet8.csproj|d:\\minhduc\\laptrinh\\educationgameweb\\educationgameapinet8\\educationgameapinet8\\models\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -94,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -102,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AuthService.cs",
               "DocumentMoniker": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\EducationGameAPINet8\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "EducationGameAPINet8\\Services\\AuthService.cs",
@@ -114,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\EducationGameAPINet8\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "EducationGameAPINet8\\Controllers\\AuthController.cs",
@@ -122,12 +122,11 @@
               "RelativeToolTip": "EducationGameAPINet8\\Controllers\\AuthController.cs",
               "ViewState": "AgIAABwAAAAAAAAAAIAwwEQAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T09:02:25.954Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T09:02:25.954Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\EducationGameAPINet8\\Program.cs",
               "RelativeDocumentMoniker": "EducationGameAPINet8\\Program.cs",
@@ -135,25 +134,24 @@
               "RelativeToolTip": "EducationGameAPINet8\\Program.cs",
               "ViewState": "AgIAADYAAAAAAAAAAAAAAD0AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T08:33:02.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T08:33:02.168Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 0,
               "Title": "GameSession.cs",
               "DocumentMoniker": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\EducationGameAPINet8\\Entities\\GameSession.cs",
               "RelativeDocumentMoniker": "EducationGameAPINet8\\Entities\\GameSession.cs",
               "ToolTip": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\EducationGameAPINet8\\Entities\\GameSession.cs",
               "RelativeToolTip": "EducationGameAPINet8\\Entities\\GameSession.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAswBQAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwBQAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-10T08:35:43.001Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\EducationGameAPINet8\\Entities\\User.cs",
               "RelativeDocumentMoniker": "EducationGameAPINet8\\Entities\\User.cs",
@@ -165,20 +163,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "EducationGameAPINet8.csproj",
               "DocumentMoniker": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\EducationGameAPINet8\\EducationGameAPINet8.csproj",
               "RelativeDocumentMoniker": "EducationGameAPINet8\\EducationGameAPINet8.csproj",
               "ToolTip": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\EducationGameAPINet8\\EducationGameAPINet8.csproj",
               "RelativeToolTip": "EducationGameAPINet8\\EducationGameAPINet8.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-07-10T08:34:54.586Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "IGameSessionService.cs",
               "DocumentMoniker": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\EducationGameAPINet8\\Services\\IGameSessionService.cs",
               "RelativeDocumentMoniker": "EducationGameAPINet8\\Services\\IGameSessionService.cs",
@@ -190,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "GameSessionService.cs",
               "DocumentMoniker": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\EducationGameAPINet8\\Services\\GameSessionService.cs",
               "RelativeDocumentMoniker": "EducationGameAPINet8\\Services\\GameSessionService.cs",
@@ -202,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\EducationGameAPINet8\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "EducationGameAPINet8\\Properties\\launchSettings.json",
@@ -210,12 +208,11 @@
               "RelativeToolTip": "EducationGameAPINet8\\Properties\\launchSettings.json",
               "ViewState": "AgIAABAAAAAAAAAAAAAAwBYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-10T09:08:30.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-10T09:08:30.012Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "GameSessionController.cs",
               "DocumentMoniker": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\EducationGameAPINet8\\Controllers\\GameSessionController.cs",
               "RelativeDocumentMoniker": "EducationGameAPINet8\\Controllers\\GameSessionController.cs",
@@ -227,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "D:\\MinhDuc\\laptrinh\\EducationGameWeb\\EducationGameAPINet8\\EducationGameAPINet8\\Services\\IAuthService.cs",
               "RelativeDocumentMoniker": "EducationGameAPINet8\\Services\\IAuthService.cs",
