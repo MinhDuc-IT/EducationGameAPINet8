@@ -37,22 +37,31 @@ namespace EducationGameAPINet8.Controllers
             return Ok(result);
         }
 
+        [AllowAnonymous]
         [HttpPost("refresh-token")]
         public async Task<ActionResult<TokenResponseDto>> RefreshToken(RefreshTokenRequestDto request) // hàm tạo mới token
         {
-            var nameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (string.IsNullOrEmpty(nameIdentifier))
+            //var nameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //if (string.IsNullOrEmpty(nameIdentifier))
+            //{
+            //    return BadRequest("User identifier is missing.");
+            //}
+
+            //var userId = Guid.Parse(nameIdentifier);
+            //var result = await authService.RefreshTokenAsync(request, userId);
+            //if (result is null || result.AccessToken is null || result.RefreshToken is null)
+            //{
+            //    return Unauthorized("Invalid refresh token or access token expired.");
+            //}
+            //return Ok(result);
+
+            var tokenResponse = await authService.RefreshTokenAsync(request);
+            if (tokenResponse == null)
             {
-                return BadRequest("User identifier is missing.");
+                return Unauthorized("Invalid refresh token");
             }
 
-            var userId = Guid.Parse(nameIdentifier);
-            var result = await authService.RefreshTokenAsync(request, userId);
-            if (result is null || result.AccessToken is null || result.RefreshToken is null)
-            {
-                return Unauthorized("Invalid refresh token or access token expired.");
-            }
-            return Ok(result);
+            return Ok(tokenResponse);
         }
 
         [HttpPost("logout")]
@@ -63,7 +72,7 @@ namespace EducationGameAPINet8.Controllers
                 var nameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 if (string.IsNullOrEmpty(nameIdentifier))
                 {
-                    return BadRequest("User identifier is missing.");
+                    return Unauthorized("User identifier is missing.");
                 }
 
                 var userId = Guid.Parse(nameIdentifier);

@@ -116,7 +116,7 @@ namespace EducationGameAPINet8.Services
         {
             var scores = await GetGameScoresAsync(userId);
 
-            var gameOrder = new List<string> { "SheepCounting", "SheepColorCounting", "SheepMemoryMatch" };
+            var gameOrder = new List<string> { "SheepCounting", "SheepColorCounting", "SheepMemoryMatch", "SheepPatternRecognition", "FinalPoint" };
             var unlocked = new List<string>();
 
             double prevScore = 0;
@@ -126,7 +126,7 @@ namespace EducationGameAPINet8.Services
                 var game = gameOrder[i];
                 var currentScore = scores.FirstOrDefault(s => s.GameType == game).TotalScore;
 
-                bool isUnlocked = i == 0 || prevScore >= 100;
+                bool isUnlocked = i == 0 || prevScore >= 50;
 
                 if (isUnlocked)
                 {
@@ -142,7 +142,7 @@ namespace EducationGameAPINet8.Services
 
         {
             var scores = await GetGameScoresAsync(userId);
-            var gameOrder = new List<string> { "SheepCounting", "SheepColorCounting", "SheepMemoryMatch" };
+            var gameOrder = new List<string> { "SheepCounting", "SheepColorCounting", "SheepMemoryMatch", "SheepPatternRecognition", "FinalPoint" };
 
             var result = new List<GameUnlockStatusDto>();
             double prevScore = 0;
@@ -152,7 +152,7 @@ namespace EducationGameAPINet8.Services
                 var game = gameOrder[i];
                 double score = scores.FirstOrDefault(s => s.GameType == game).TotalScore;
 
-                bool unlocked = i == 0 || prevScore >= 100;
+                bool unlocked = i == 0 || prevScore >= 50;
 
                 if (unlocked)
                 {

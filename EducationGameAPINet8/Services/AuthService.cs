@@ -61,9 +61,9 @@ namespace EducationGameAPINet8.Services
             return user;
         }
 
-        public async Task<TokenResponseDto?> RefreshTokenAsync(RefreshTokenRequestDto request, Guid userId)
+        public async Task<TokenResponseDto?> RefreshTokenAsync(RefreshTokenRequestDto request)
         {
-            var user = await ValidateRefreshTokenAsync(userId, request.RefreshToken);
+            var user = await ValidateRefreshTokenAsync(request.RefreshToken);
             if (user is null)
             {
                 return null;
@@ -72,14 +72,20 @@ namespace EducationGameAPINet8.Services
             return await CreateTokenResponse(user);
         }
 
-        private async Task<User?> ValidateRefreshTokenAsync(Guid userId, string refreshToken)
+        private async Task<User?> ValidateRefreshTokenAsync(string refreshToken)
         {
-            var user = await context.Users.FindAsync(userId);
-            if (user is null || user.RefreshToken != refreshToken
-                || DateTime.Parse(user.RefreshTokenExpiryTime!) <= DateTime.UtcNow) // Convert string to DateTime  
-            {
-                return null;
-            }
+            //var user = await context.Users.FindAsync(userId);
+            //if (user is null || user.RefreshToken != refreshToken
+            //    || DateTime.Parse(user.RefreshTokenExpiryTime!) <= DateTime.UtcNow) // Convert string to DateTime  
+            //{
+            //    return null;
+            //}
+            //return user;
+
+            var user = await context.Users
+            .FirstOrDefaultAsync(u => u.RefreshToken == refreshToken &&
+                                  DateTime.Parse(u.RefreshTokenExpiryTime!) > DateTime.UtcNow);
+
             return user;
         }
 

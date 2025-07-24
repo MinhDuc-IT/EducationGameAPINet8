@@ -17,7 +17,7 @@ namespace EducationGameAPINet8.Controllers
                 var nameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 if (string.IsNullOrEmpty(nameIdentifier))
                 {
-                    return BadRequest("User identifier is missing.");
+                    return Unauthorized("User identifier is missing.");
                 }
 
                 var userId = Guid.Parse(nameIdentifier); // lấy userId từ claim trong token
@@ -43,7 +43,7 @@ namespace EducationGameAPINet8.Controllers
                 var nameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 if (string.IsNullOrEmpty(nameIdentifier))
                 {
-                    return BadRequest("User identifier is missing.");
+                    return Unauthorized("User identifier is missing.");
                 }
 
                 var userId = Guid.Parse(nameIdentifier); // lấy userId từ claim trong token
@@ -67,13 +67,16 @@ namespace EducationGameAPINet8.Controllers
             try
             {
                 var nameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
                 if (string.IsNullOrEmpty(nameIdentifier))
                 {
-                    return BadRequest("User identifier is missing.");
+                    return Unauthorized("User identifier is missing.");
                 }
 
                 var userId = Guid.Parse(nameIdentifier); // lấy userId từ claim trong token
-                
+
+                //var userId = Guid.Parse("08ddbf91-b9ad-43bc-8cf9-1a90aebfc6e7");
+
                 var summary = await gameSessionService.GetGameSummaryAsync(userId, gameType); // gọi đến service xử lý
                 if (summary == null)
                 {
@@ -95,7 +98,7 @@ namespace EducationGameAPINet8.Controllers
                 var nameIdentifier = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 if (string.IsNullOrEmpty(nameIdentifier))
                 {
-                    return BadRequest("User identifier is missing.");
+                    return Unauthorized("User identifier is missing.");
                 }
 
                 var userId = Guid.Parse(nameIdentifier); // lấy userId từ claim trong token

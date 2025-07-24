@@ -29,7 +29,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("SheepGameDatabase"),
-        new MySqlServerVersion(new Version(8, 2, 12)) // ← thay bằng version MySQL thực tế
+        new MySqlServerVersion(new Version(8, 0, 42)) // ← thay bằng version MySQL thực tế
     ));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -60,8 +60,8 @@ using (var scope = app.Services.CreateScope())
 }
 
 // --- Phục vụ frontend tĩnh (React build) ---
-app.UseDefaultFiles(); // tìm index.html trong wwwroot
-app.UseStaticFiles();  // phục vụ các file React build như js, css, img...
+//app.UseDefaultFiles(); // tìm index.html trong wwwroot
+//app.UseStaticFiles();  // phục vụ các file React build như js, css, img...
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -72,13 +72,15 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowFrontend");
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
 app.MapControllers();
 
 // --- Đảm bảo điều hướng đúng trong React SPA ---
-app.MapFallbackToFile("index.html");
+//app.MapFallbackToFile("index.html");
 
 app.Run();
