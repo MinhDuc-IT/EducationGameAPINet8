@@ -1,5 +1,10 @@
 # Build
+bin/
 obj/
+
+!bin/Release/
+!bin/Release/**/
+!bin/Release/**/publish/
 
 # User-specific files
 *.user
